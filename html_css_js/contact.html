@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>
+    CONTACT
+  </title>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a class="active" href="contact.html">Contact</a>
+  </div>
+
+  <p class="contact">Contact me</p>
+  <div class="form">
+    <form action="https://formspree.io/f/xvoyojka" method="post">
+      <label for="fname">First name:</label>
+      <input type="text" class="required" id="fname" name="fname" placeholder="Name" required
+        onkeyup="enableSubmit()"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname" placeholder="Last name (optional)"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" class="required" id="email" name="email" placeholder="Email" required
+        onkeyup="enableSubmit()"><br><br>
+      <label for="comment">Comment:</label>
+      <input type="text" class="required" id="comment" name="comment" placeholder="Comment" required
+        onkeyup="enableSubmit()"><br><br>
+      <label for="hour">What is the best hour to contact you?</label><br><br>
+      <input type="time" class="required" id="time" name="hour" required onchange="enableSubmit()"><br><br>
+      <input id="submitbtn" disabled type="submit" value="Submit">
+    </form>
+  </div>
+
+  <footer class="footer">
+    <div id="footer-languages"></div>
+  </footer>
+
+  <script>
+    function enableSubmit() {
+      let inputs = document.getElementsByClassName('required');
+      let btn = document.querySelector('input[type="submit"]');
+      let isValid = true;
+      for (var i = 0; i < inputs.length; i++) {
+        let changedInput = inputs[i];
+        if (changedInput.value.trim() === "" || changedInput.value === null) {
+          isValid = false;
+          break;
+        }
+      }
+      btn.disabled = !isValid;
+    }
+  </script>
+
+  <script src='footer.js'></script>
+
+</body>
+
+</html>
